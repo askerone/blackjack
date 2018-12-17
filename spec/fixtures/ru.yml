@@ -1,0 +1,4 @@
+ru:
+  blackjack:
+    example: example
+    example_var: Hello %{name}

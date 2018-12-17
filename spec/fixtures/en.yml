@@ -1,0 +1,5 @@
+en:
+  blackjack:
+    example: example
+    example_var: Hello %{name}
+    example_multiple: Hello %{name}, score %{score}

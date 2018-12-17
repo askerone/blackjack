@@ -1,0 +1,17 @@
+en:
+  cli:
+    player_cards: "%{player_name} cards:"
+    unknown_card_face: XX
+    invalid_action: Please try again, you are wrote invalid command!
+
+    current_bank: "Current Bank: %{bank_cash}"
+    total_score:  "Total score: %{score}"
+
+    balance: "%{player_name} balance: %{balance}"
+    win:     "%{player_name} wins!"
+    draw:    Nobody won, draw!
+
+  game:
+    welcome: "Welcome to Black Jack Game!\nPlease write you're name:"
+    player_step:
+      actions: "Choose action:\n1) hit\n2) stand\n3) double\n4) exit"
