@@ -3,7 +3,7 @@ module Blackjack
     module Actions
       def perform_action
         cli_notification.notify(:perform_action)
-        action = gets.chomp
+        action = gets.strip
 
         case action.to_sym
         when :split
@@ -24,7 +24,9 @@ module Blackjack
         action
       end
 
-      def split; end
+      def split
+      
+      end
 
       def stand
         determine_winner

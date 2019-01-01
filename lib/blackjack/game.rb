@@ -1,3 +1,4 @@
+require 'pry'
 module Blackjack
   class Game
     include SupportGame::Rules
@@ -16,8 +17,8 @@ module Blackjack
         balance: Support::Config.fetch_setting(:dealer_balance)
       )
 
-      @player.hand = Hand.new(player)
-      @dealer.hand = Hand.new(dealer)
+      @player.hand = Hand.new
+      @dealer.hand = Hand.new
 
       @croupier = SupportGame::Croupier.new(player, dealer)
       @cli_notification = Cli::Notification.new(self)
