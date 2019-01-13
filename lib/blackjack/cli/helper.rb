@@ -6,13 +6,18 @@ module Blackjack
         $stdout.puts
       end
 
-      def display_cards(player_name, cards)
+      def display_cards(player_name, cards, cards2=nil)
         $stdout.puts locale.t('cli.player_cards', player_name: player_name)
 
         cards.each do |card|
           $stdout.puts "#{card.face}#{card.suit}"
         end
 
+        if cards2 != nil
+          cards2.each do |card|
+            $stdout.puts "#{card.face}#{card.suit}"
+          end
+        end
         $stdout.puts
       end
 
@@ -37,6 +42,10 @@ module Blackjack
 
       def display_cash(player_name, player_balance)
         $stdout.puts locale.t('cli.balance', player_name: player_name, balance: player_balance)
+      end
+
+      def display_split_request
+        $stdout.print locale.t('cli.split_request')
       end
 
       def clear

@@ -25,7 +25,14 @@ module Blackjack
       end
 
       def split
-      
+        player.hand_on_split.cards << player.hand.cards.shift(1)[0]
+        player.take_cards croupier.deck.take(1), player.hand_on_split
+        player.take_cards croupier.deck.take(1), player.hand
+
+        dealer.hand_on_split.cards << dealer.hand.cards.shift(1)[0]
+        dealer.take_cards croupier.deck.take(1), dealer.hand_on_split
+        dealer.take_cards croupier.deck.take(1), dealer.hand
+        binding.pry
       end
 
       def stand

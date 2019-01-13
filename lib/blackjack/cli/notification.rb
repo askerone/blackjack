@@ -1,3 +1,4 @@
+require 'pry'
 module Blackjack
   module Cli
     class Notification
@@ -12,6 +13,7 @@ module Blackjack
         hit:            -> { notify_hit },
         stand:          -> { notify_stand },
         double:         -> { notify_double },
+        split:          -> { notify_split },
         draw:           -> { notify_draw },
         win:            -> { notify_win(player_name) }
 
@@ -89,13 +91,17 @@ module Blackjack
         clear
 
         display_current_bank(croupier.bank)
-
         display_cards player.name, player.cards
         display_cards dealer.name, dealer.cards
       end
 
+      def notify_split
+        display_split_request
+      end
+
       def notify_deal_cards
-        display_cards player.name, player.cards
+        display_cards player.name, player.cards, player.cards(player.hand_on_split)
+        binding.pry
         display_score player.score
 
         display_dealer_cards dealer.name, dealer.cards.first

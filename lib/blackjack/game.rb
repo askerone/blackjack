@@ -25,15 +25,26 @@ module Blackjack
     end
 
     def start
+      steps = 0
       loop do
+        steps += 1
         croupier.change_deck!
         croupier.reset_bank!
 
         croupier.rate_step
         croupier.deal_cards
-
+        # binding.pry
+        player.hand.cards.first.face, player.hand.cards[1].face = :J, :J
         cli_notification.notify(:game_start)
-
+        if steps = 1 && player.hand.cards.first.face == player.hand.cards[1].face
+          cli_notification.notify(:split)
+          answer = gets.strip.downcase.to_sym
+          if answer == :yes
+            @player.hand_on_split = Hand.new
+            @dealer.hand_on_split = Hand.new
+            split
+          end
+        end
         action = perform_action
 
         break if quit?(action)
