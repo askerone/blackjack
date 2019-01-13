@@ -100,8 +100,11 @@ module Blackjack
       end
 
       def notify_deal_cards
-        display_cards player.name, player.cards, player.cards(player.hand_on_split)
-        binding.pry
+        if player.hand_on_split != nil
+          display_cards player.name, player.cards, player.cards(player.hand_on_split)
+        else
+          display_cards player.name, player.cards
+        end
         display_score player.score
 
         display_dealer_cards dealer.name, dealer.cards.first

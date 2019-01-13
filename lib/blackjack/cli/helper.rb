@@ -6,14 +6,14 @@ module Blackjack
         $stdout.puts
       end
 
-      def display_cards(player_name, cards, cards2=nil)
+      def display_cards(player_name, cards, cards2 = nil)
         $stdout.puts locale.t('cli.player_cards', player_name: player_name)
 
         cards.each do |card|
           $stdout.puts "#{card.face}#{card.suit}"
         end
-
         if cards2 != nil
+          $stdout.puts('Second hand')
           cards2.each do |card|
             $stdout.puts "#{card.face}#{card.suit}"
           end
