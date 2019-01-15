@@ -10,6 +10,8 @@ en:
     balance: "%{player_name} balance: %{balance}"
     win:     "%{player_name} wins!"
     draw:    Nobody won, draw!
+    split_request: "Do you want to split a hand?(Yes/No): "
+
 
   game:
     welcome: "Welcome to Black Jack Game!\nPlease write you're name:"

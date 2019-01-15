@@ -12,7 +12,7 @@ module Blackjack
         cards.each do |card|
           $stdout.puts "#{card.face}#{card.suit}"
         end
-
+        
         $stdout.puts
       end
 
@@ -37,6 +37,10 @@ module Blackjack
 
       def display_cash(player_name, player_balance)
         $stdout.puts locale.t('cli.balance', player_name: player_name, balance: player_balance)
+      end
+
+      def display_split_request
+        $stdout.print locale.t('cli.split_request')
       end
 
       def clear

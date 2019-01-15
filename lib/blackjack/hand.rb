@@ -2,8 +2,8 @@ module Blackjack
   class Hand
     attr_reader :cards
 
-    def initialize(player)
-      @player = player
+    def initialize
+
       @cards = []
     end
 
